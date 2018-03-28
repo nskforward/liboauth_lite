@@ -13,11 +13,10 @@ gcc -m32 -shared -o liboauth_lite.dll oauth.c collection.c oauth-tools.c hmac-sh
 ```
 
 ### How use DLL in Loadrunner script
-- Attach *liboauth_lite.dll* and *oauth.h* files to your script folder
+- Attach *distr/liboauth_lite.dll* and *distr/oauth.h* files to your script folder
 - Include the load instruction to the **vuser_init** action of script
 ```
-#include "oauth.h"
-lr_load_dll("myoauth.dll");
+#include "oauth_lite.h"
 ```
 
 ### Example
