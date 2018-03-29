@@ -9,5 +9,6 @@ void *xcalloc (size_t nmemb, size_t size);
 void *xrealloc (void *ptr, size_t size);
 char *xstrdup (const char *s);
 void xfree(void *ptr);
+void *memdup(void *src, size_t size);
 
 #endif

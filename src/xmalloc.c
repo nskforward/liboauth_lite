@@ -60,4 +60,11 @@ char *xstrdup (const char *s) {
 void xfree(void *ptr) {
     return free(ptr);
 }
+
+void *memdup(void *src, size_t size)
+{
+    void *dest = calloc(1, size);
+    memcpy(dest, src, size);
+    return dest;
+}
 // vi: sts=2 sw=2 ts=2
