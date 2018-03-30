@@ -10,7 +10,7 @@ Light implementation of OAuth 1.0 (rfc5849) using C language
 - By CLion IDE: click "Run"->"Build" (Ctrl+F9)
 - By MinGW terminal execute:
 ```
-gcc -m32 -shared -o liboauth_lite.dll library.c src/oauth.c src/sha1.c src/memxor.c src/base64.c src/xmalloc.c
+gcc -m32 -shared -static-libgcc -o liboauth_lite.dll library.c library.h src/oauth.c src/oauth.h src/sha1.c src/sha1.h src/memxor.c src/memxor.h src/base64.c src/base64.h src/xmalloc.c src/xmalloc.h
 ```
 
 ### How use DLL in Loadrunner script

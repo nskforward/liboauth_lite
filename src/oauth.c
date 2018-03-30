@@ -10,14 +10,14 @@
 
 OAuthParameterCollection * oauth_collection_init()
 {
-    OAuthParameterCollection *collection = calloc(1, sizeof(OAuthParameterCollection));
+    OAuthParameterCollection *collection = malloc(sizeof(OAuthParameterCollection));
     collection->count = 0;
     collection->items = calloc(MAX_OAUTH_PARAMS, sizeof(OAuthParameter *));
 }
 
 void oauth_collection_destroy(OAuthParameterCollection *collection)
 {
-    for (int i=0; i<collection->count; i++){
+    for (int i=0; i < collection->count; i++){
         OAuthParameter *param = collection->items[i];
         oauth_param_destroy(param);
     }
@@ -145,11 +145,10 @@ char * oauth_get_base_url(char *url)
 }
 
 
-char * oauth_sign_post(char*url, char*post_data, char*consumer_key, char *consumer_secret)
+char * oauth_sign_post(char *url, char *post_data, char *consumer_key, char *consumer_secret)
 {
     char * base_url = oauth_get_base_url(url);
     char * encoded_base_url = oauth_url_escape(base_url);
-
     OAuthParameterCollection * collection = oauth_collection_init();
     oauth_collection_add_params(collection, post_data);
     oauth_collection_add_specific_params(collection, consumer_key);
@@ -178,17 +177,11 @@ char * oauth_sign_post(char*url, char*post_data, char*consumer_key, char *consum
 
     strcat(buffer, encoded_normalized_string);
 
-    //printf("%s\n\n", buffer);
-    //printf("%s\n", encoded_signature);
-
     char final_signed_body[8192] = "\0";
     strcat(final_signed_body, signed_post_body);
     strcat(final_signed_body, "&oauth_signature=");
     strcat(final_signed_body, encoded_signature);
 
-    free(base_url);
-    free(encoded_base_url);
-    oauth_collection_destroy(collection);
     free(signed_post_body);
     free(normalized_params);
     free(encoded_normalized_string);
@@ -196,6 +189,9 @@ char * oauth_sign_post(char*url, char*post_data, char*consumer_key, char *consum
     free(resbuf);
     free(signature);
     free(encoded_signature);
+    free(base_url);
+    free(encoded_base_url);
+    oauth_collection_destroy(collection);
 
     return strdup(final_signed_body);
 }
