@@ -1,0 +1,4 @@
+C:/Users/ishibkikh/CLionProjects/liboauth/cmake-build-release-mingw/CMakeFiles/rebuild_cache.dir
+C:/Users/ishibkikh/CLionProjects/liboauth/cmake-build-release-mingw/CMakeFiles/oauth_lite.dir
+C:/Users/ishibkikh/CLionProjects/liboauth/cmake-build-release-mingw/CMakeFiles/test_liboath.dir
+C:/Users/ishibkikh/CLionProjects/liboauth/cmake-build-release-mingw/CMakeFiles/edit_cache.dir
