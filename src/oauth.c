@@ -188,9 +188,12 @@ char * oauth_sign_post(char*url, char*post_data, char*consumer_key, char *consum
 
     free(base_url);
     free(encoded_base_url);
+    oauth_collection_destroy(collection);
+    free(signed_post_body);
     free(normalized_params);
     free(encoded_normalized_string);
     free(encoded_consumer_secret);
+    free(resbuf);
     free(signature);
     free(encoded_signature);
 
@@ -207,16 +210,16 @@ char *oauth_gen_nonce(int len)
         output[i] = alphanum[rand() % (sizeof(alphanum) - 1)];
     }
     output[len] = '\0';
-    //return strdup(output);
-    return strdup("RKRIIT55Q6wsUtDHJkPFKAwalP8EGooo");
+    return strdup(output);
+    //return strdup("RKRIIT55Q6wsUtDHJkPFKAwalP8EGooo");
 }
 
 char * oauth_get_timestamp()
 {
     char buffer[32] = "\0";
     sprintf(buffer, "%i", (size_t)time(NULL));
-    //return strdup(buffer);
-    return strdup("1522157348");
+    return strdup(buffer);
+    //return strdup("1522157348");
 }
 
 
