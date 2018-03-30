@@ -36,12 +36,12 @@ oauth_sign_post(
 	
 web_custom_request("request",
   "Method=POST",
-  "URL={OAUTH_URL}",
+  "{Host}/?service=lti&method=launch",
   "Snapshot=t1.inf",
   "Body={OAUTH_SIGNED_BODY}",
   LAST);
 ```
-**OAUTH_URL** and **OAUTH_SIGNED_BODY** are newly created variables by liboauth_lite 
+**OAUTH_SIGNED_BODY** is newly created variable by liboauth_lite 
 
 ### Functions
 - void **oauth_sign_body**(char *oauth_consumer_key, char *oauth_consumer_secret, char *http_method, char *http_url, char *http_post_body, char * out_body);
