@@ -1,10 +1,9 @@
 # liboauth_lite
-Light implementation of OAuth 1.0 (rfc5849) using C language
+Light implementation of OAuth 1.0 (rfc5849) using C language without OpenSSL
 
 ### How to install
 - git clone https://github.com/nskforward/liboauth_lite.git
 - Install Windows gcc (http://www.mingw.org/)
-- Install OpenSSL (http://wiki.qt.io/Compiling_OpenSSL_with_MinGW)
 
 ### How to compile DLL library
 - By CLion IDE: click "Run"->"Build" (Ctrl+F9)
