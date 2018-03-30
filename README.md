@@ -23,6 +23,16 @@ gcc -m32 -shared -static-libgcc -o liboauth_lite.dll library.c library.h src/oau
  lr_load_dll("liboauth_lite.dll");
  ```
 
+### Functions
+```
+lr_oauth_sign_request(char* http_method,
+                      char* url,
+                      char* http_post_body,
+                      char* consumer_key,
+                      char* consumer_secret);
+```
+**OAUTH_SIGNED_BODY** is newly created LR variable as result of above function
+
 ### Example
 ```
 oauth_sign_post(
@@ -40,11 +50,6 @@ web_custom_request("request",
   "Body={OAUTH_SIGNED_BODY}",
   LAST);
 ```
-**OAUTH_SIGNED_BODY** is newly created variable by liboauth_lite 
-
-### Functions
-- void **oauth_sign_body**(char *oauth_consumer_key, char *oauth_consumer_secret, char *http_method, char *http_url, char *http_post_body, char * out_body);
-- void **oauth_sign_header**(char *oauth_consumer_key, char *oauth_consumer_secret, char *http_method, char *http_url, char *http_post_body, char *out_header);
 
 ### Compiled x86 DLL
 https://github.com/nskforward/liboauth_lite/blob/master/distr/liboauth_lite.dll
