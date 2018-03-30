@@ -10,14 +10,14 @@ Light implementation of OAuth 1.0 (rfc5849) using C language
 - By CLion IDE: click "Run"->"Build" (Ctrl+F9)
 - By MinGW terminal execute:
 ```
-gcc -m32 -shared -o liboauth_lite.dll oauth.c collection.c oauth-tools.c hmac-sha1.c sha1.c memxor.c
+gcc -m32 -shared -o liboauth_lite.dll library.c src/oauth.c src/sha1.c src/memxor.c src/base64.c src/xmalloc.c
 ```
 
 ### How use DLL in Loadrunner script
 - Attach *distr/liboauth_lite.dll* and *distr/oauth.h* files to your script folder
 - Include the load instruction to the **vuser_init** action of script
 ```
-#include "oauth_lite.h"
+#include "oauth.h"
 ```
 
 ### Example
@@ -44,4 +44,4 @@ web_custom_request("request",
 - void **oauth_sign_header**(char *oauth_consumer_key, char *oauth_consumer_secret, char *http_method, char *http_url, char *http_post_body, char *out_header);
 
 ### Compiled x86 DLL
-https://github.com/nskforward/oauth_c/tree/master/dist
+https://github.com/nskforward/liboauth_lite/blob/master/distr/liboauth_lite.dll
