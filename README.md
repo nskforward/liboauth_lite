@@ -15,10 +15,14 @@ gcc -m32 -shared -static-libgcc -o liboauth_lite.dll library.c library.h src/oau
 
 ### How use DLL in Loadrunner script
 - Attach *distr/liboauth_lite.dll* and *distr/oauth.h* files to your script folder
-- Include the load instruction to the **vuser_init** action of script
+- Include the load instruction to the **vuser_init** action of script before function signature
 ```
 #include "oauth.h"
 ```
+- Include below instruction inside vuser_init action
+ ```
+ lr_load_dll("liboauth_lite.dll");
+ ```
 
 ### Example
 ```
