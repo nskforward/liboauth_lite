@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2017.3.4\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\test_liboath.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\test_liboath.dir/objects.a @CMakeFiles\test_liboath.dir\objects1.rsp
-C:\MinGW\bin\gcc.exe -O3 -DNDEBUG   -Wl,--whole-archive CMakeFiles\test_liboath.dir/objects.a -Wl,--no-whole-archive  -o test_liboath.exe -Wl,--out-implib,libtest_liboath.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\test_liboath.dir\linklibs.rsp
