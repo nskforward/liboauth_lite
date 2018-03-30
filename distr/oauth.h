@@ -1,3 +1,8 @@
+/*
+ * https://github.com/nskforward/liboauth_lite
+ */
+
+
 lr_load_dll("liboauth_lite.dll");
 
 /*
